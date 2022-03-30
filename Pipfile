@@ -1,0 +1,20 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+torch = ">=0.4.1"
+torchvision = ">=0.2.1"
+opencv-python = ">=3.4.0.14"
+numpy = ">=1.14.0"
+rospkg = "*"
+pyyaml = "*"
+
+[requires]
+python_version = "3.6"
+
+[dev-packages]
+
+[scripts]
+launch = "roslaunch lightweight_pose_estimation pose_estimator.launch"

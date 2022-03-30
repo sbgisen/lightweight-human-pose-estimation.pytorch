@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="color" default="/hand_camera/color/image_rect_color"/>
+  <arg name="points" default="/hand_camera/depth_registered/points"/>
+  <arg name="checkpoint" default="$(find lightweight_pose_estimation)/models/checkpoint_iter_370000.pth"/>
+  <arg name="height" default="480"/>
+  <arg name="cpu" default="false"/>
+  <arg name="track" default="true"/>
+  <arg name="smooth" default="true"/>
+  <node name="pose_estimator" pkg="lightweight_pose_estimation" type="demo_ros.py" output="screen">
+    <param name="~checkpoint" value="$(arg checkpoint)"/>
+    <param name="~height" value="$(arg height)"/>
+    <param name="~cpu" value="$(arg cpu)"/>
+    <param name="~track" value="$(arg track)"/>
+    <param name="~smooth" value="$(arg smooth)"/>
+    <remap from="~color" to="$(arg color)"/>
+    <remap from="~points" to="$(arg points)"/>
+  </node>
+</launch>
